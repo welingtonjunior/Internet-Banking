@@ -1,1 +1,43 @@
-<p>transactions works!</p>
+<div class="transaction">
+
+    <form [formGroup] ="transactionForm" class="transaction__form">
+    <mat-form-field class="transaction__input">
+      <mat-label>Conta de Origem</mat-label>
+      <input formControlName="accountOrigin"matInput type="text" placeholder="Digite o número da conta de origem">
+    </mat-form-field>
+
+    <mat-form-field class="transaction__input">
+      <mat-label>Conta de Destino</mat-label>
+      <input formControlName="accountDestination" matInput type="text" placeholder="Digite o número da conta de destino">
+    </mat-form-field>
+
+    <mat-form-field class="transaction__input">
+      <mat-label>Valor</mat-label>
+      <input formControlName="aamount" matInput type="number" placeholder="Digite o valor da transação">
+    </mat-form-field>
+
+    <mat-form-field class="transaction__input">
+      <mat-label>Descrição</mat-label>
+      <input formControlName="description" matInput type="text" placeholder="Digite uma breve descrição da transação">
+    </mat-form-field>
+
+    <mat-form-field class="transaction__input">
+      <mat-label>Tipo de Transação</mat-label>
+      <mat-select formControlName="transactionType">
+        <mat-option value="transferencia">Transferência</mat-option>
+        <mat-option value="pagamento">Pagamento</mat-option>
+        <mat-option value="deposito">Depósito</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="transaction__input">
+      <mat-label>Data da Transação</mat-label>
+      <input formControlName="transactionDate" matInput type="date" placeholder="Digite a data da transação">
+    </mat-form-field>
+
+    <mat-form-field class="transaction__input">
+      <mat-label>Senha ou Token de Segurança</mat-label>
+      <input formControlName="securityPassword" matInput type="password" placeholder="Digite sua senha ou token">
+    </mat-form-field>
+  </form>
+</div>
