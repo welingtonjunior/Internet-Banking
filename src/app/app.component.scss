@@ -1,0 +1,17 @@
+@import '@angular/material/prebuilt-themes/indigo-pink';
+
+
+.internet-banking{
+  background-color: blueviolet;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+    &__menu{
+      justify-content: space-around;
+      align-items: center;
+      gap: 10px;
+
+    }
+}
+
