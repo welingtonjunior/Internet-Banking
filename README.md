@@ -1,27 +1,44 @@
-# InternetBanking
+# Internet Banking
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.6.
+O Internet Banking é um projeto de aplicativo web desenvolvido para simular funcionalidades básicas de um sistema bancário online. Este projeto foi criado como parte de um exercício de prática para desenvolvimento web com Angular.
 
-## Development server
+## Funcionalidades
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Visualização de saldo e extrato da conta bancária.
+- Realização de transferências entre contas.
+- Pagamento de contas e boletos.
+- Simulação de investimentos.
+- Controle de segurança com autenticação de usuário.
 
-## Code scaffolding
+## Tecnologias Utilizadas
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Angular: Um framework JavaScript/TypeScript para desenvolvimento de aplicativos web.
+- HTML5 e CSS3: Linguagens de marcação e estilo para estruturação e design da aplicação.
+- Angular Material: Uma biblioteca de componentes de interface de usuário do Angular para criar uma experiência de usuário consistente e atraente.
+- Git: Um sistema de controle de versão distribuído para gerenciar o código-fonte do projeto.
+- GitHub: Uma plataforma de hospedagem de código-fonte que permite colaboração e versionamento de projetos.
 
-## Build
+## Instalação e Uso
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. Clone o repositório:
 
-## Running unit tests
+   git clone https://github.com/welingtonjunior/Internet-Banking.git
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+2. Instale as dependências do projeto:
 
-## Running end-to-end tests
+   cd Internet-Banking
+   npm install
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+3. Inicie o servidor de desenvolvimento:
 
-## Further help
+   ng serve
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+4. Abra o navegador e acesse http://localhost:4200 para visualizar a aplicação.
+
+## Contribuição
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir um problema ou enviar um pull request para melhorar este projeto.
+
+## Licença
+
+Este projeto é distribuído sob a licença MIT. Consulte o arquivo LICENSE para obter mais informações.
