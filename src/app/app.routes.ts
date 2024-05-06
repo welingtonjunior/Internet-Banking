@@ -1,12 +1,19 @@
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { NgModule } from '@angular/core';
+import { TransactionsComponent } from './components/transactions/transactions.component';
 
 
 export const routes: Routes = [
   {
     path: 'home',
-    component: HomeComponent
+    component: HomeComponent,
+    title: 'Home'
+  },
+  {
+    path: 'transactions',
+    component: TransactionsComponent,
+    title: 'Transferências'
   },
   {
     path: '',
@@ -14,8 +21,4 @@ export const routes: Routes = [
     pathMatch: 'full'
   },
 ];
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
+
