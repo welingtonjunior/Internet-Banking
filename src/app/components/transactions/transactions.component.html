@@ -1,6 +1,6 @@
 <div class="transaction">
 
-    <form [formGroup] ="transactionForm" class="transaction__form">
+    <form [formGroup]="transactionForm" class="transaction__form">
     <mat-form-field class="transaction__input">
       <mat-label>Conta de Origem</mat-label>
       <input formControlName="accountOrigin"matInput type="text" placeholder="Digite o número da conta de origem">
@@ -39,5 +39,15 @@
       <mat-label>Senha ou Token de Segurança</mat-label>
       <input formControlName="securityPassword" matInput type="password" placeholder="Digite sua senha ou token">
     </mat-form-field>
+    <div class="transaction__input__button">
+      <button 
+        mat-flat-button 
+        color="primary" 
+        (click)="submit()" 
+        [disabled]="!this.transactionForm.valid"
+        >Enviar
+      </button>
+    </div>
   </form>
 </div>
+<pre>{{ dataList$ | async }}</pre>

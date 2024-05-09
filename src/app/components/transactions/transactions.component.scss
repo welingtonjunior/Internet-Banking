@@ -9,14 +9,29 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-    background-color: #C0C0C0;
+    background-color: #ffffff; 
     border-radius: 10px;
-
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   }
 
   &__input {
     width: 100%;
 
+    &__button {
+      display: flex;
+      justify-content: start;
+      margin: 10px 20px;
+      background-color: #1a237e; 
+      color: #ffffff; 
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #0d47a1; 
+      }
+    }
   }
 }
-
