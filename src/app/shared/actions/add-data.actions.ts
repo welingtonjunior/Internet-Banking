@@ -1,9 +1,9 @@
 import { createAction, props } from '@ngrx/store';
-import { TransactionForm } from '../interfaces/transaction-form.interface';
+import { Profile, TransactionForm } from '../interfaces/transaction-form.interface';
 
 export const addDataRequest = createAction(
   '[Add Data] - Request',
-  props<{ item: TransactionForm }>()
+  props<{ item: TransactionForm | Profile }>()
 );
 
 export const addDataSuccess = createAction(

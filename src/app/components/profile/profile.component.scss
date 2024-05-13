@@ -1,0 +1,25 @@
+.profile {
+  display: flex;
+  justify-content: center;
+  padding: 25px;
+  &__data {
+    display: grid;
+    padding: 20px;
+    h2 {
+      padding: 20px;
+    }
+    button {
+      margin-left: 10px;
+    }
+    form {
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      background-color: #f5f5f5;
+      border-radius: 10px;
+      border: 1px solid #dddcdc;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+  }
+}

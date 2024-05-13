@@ -5,7 +5,7 @@
     </div>
     <button mat-button [matMenuTriggerFor]="accountMenu">Minha Conta</button>
     <mat-menu #accountMenu="matMenu" yPosition="above">
-      <button mat-menu-item>Perfil</button>
+      <button mat-menu-item routerLink="profile">Perfil</button>
       <button mat-menu-item>Contas e Cartões</button>
       <button mat-menu-item routerLink="transactions">Transferências</button>
       <button mat-menu-item>Pagamentos</button>

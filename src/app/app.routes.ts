@@ -3,6 +3,7 @@ import { HomeComponent } from './components/home/home.component';
 import { NgModule } from '@angular/core';
 import { TransactionsComponent } from './components/transactions/transactions.component';
 import { ExtractComponent } from './components/extract/extract.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 export const routes: Routes = [
@@ -15,6 +16,11 @@ export const routes: Routes = [
     path: 'transactions',
     component: TransactionsComponent,
     data: { title: 'Transferências' }
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    data: { title: 'Perfil' }
   },
   {
     path: 'extract',

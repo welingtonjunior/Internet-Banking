@@ -10,14 +10,20 @@ import { DataEffects } from './shared/effects/load-data.effects';
 import { dataReducer } from './shared/reducers/load-data.reducer';
 import { AddDataEffects } from './shared/effects/add-data.effecta';
 import { addDataReducer } from './shared/reducers/add-data.reducer';
+import { notificationReducer } from './shared/reducers/notification.reducer';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes), 
     provideClientHydration(), 
     provideAnimationsAsync(), 
-    provideStore(dataReducer),
-    provideStore(addDataReducer),
+    provideStore({
+      data: dataReducer,
+      notification: notificationReducer,
+      addData: addDataReducer
+    }), 
     provideEffects(DataEffects),
     provideEffects(AddDataEffects)]
 };
+
+

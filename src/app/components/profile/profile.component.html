@@ -1,0 +1,48 @@
+<div class="profile">
+  <div class="info">
+    <div class="profile__data">
+      <h2>Perfil de Usuário</h2>
+      <form [formGroup]="profileForm">
+        
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="Nome Completo"
+              formControlName="name"
+            />
+          </mat-form-field>
+      
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="Número da Conta"
+              formControlName="accountNumber"
+            />
+          </mat-form-field>
+        
+          <mat-form-field >
+            <input
+              matInput
+              type="email"
+              placeholder="Digite um email válido"
+              formControlName="email"
+            />
+          </mat-form-field>
+          <mat-form-field >
+            <input
+              matInput
+              type="tel"
+              placeholder="Digite seu número"
+              formControlName="phone"
+            />
+          </mat-form-field>
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="submit()">
+          Enviar
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

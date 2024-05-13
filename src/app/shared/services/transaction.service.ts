@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, timer } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { TransactionForm } from '../interfaces/transaction-form.interface';
+import { Profile, TransactionForm } from '../interfaces/transaction-form.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -17,10 +17,11 @@ export class TransactionService {
     );
   }
 
-  addData(item: TransactionForm): Observable<any[]> {
+  addData(item: TransactionForm | Profile): Observable<any[]> {
     const newData = [...this.data, item];
     this.data = newData;
     console.log('add service', item)
+    console.log('data ==>>', this.data)
     return of(newData);
   }
 
