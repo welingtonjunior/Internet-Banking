@@ -4,13 +4,13 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { provideEffects } from '@ngrx/effects';
+import { EffectsRunner, provideEffects } from '@ngrx/effects';
 import { provideStore } from '@ngrx/store';
 import { DataEffects } from './shared/effects/load-data.effects';
 import { dataReducer } from './shared/reducers/load-data.reducer';
-import { AddDataEffects } from './shared/effects/add-data.effecta';
 import { addDataReducer } from './shared/reducers/add-data.reducer';
 import { notificationReducer } from './shared/reducers/notification.reducer';
+import { AddDataEffects } from './shared/effects/add-data.effecta';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -22,8 +22,8 @@ export const appConfig: ApplicationConfig = {
       notification: notificationReducer,
       addData: addDataReducer
     }), 
+    EffectsRunner,
     provideEffects(DataEffects),
-    provideEffects(AddDataEffects)]
+    provideEffects(AddDataEffects), 
+  ]
 };
-
-

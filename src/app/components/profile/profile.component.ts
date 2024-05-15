@@ -24,7 +24,7 @@ import { Profile } from '../../shared/interfaces/transaction-form.interface';
     ReactiveFormsModule]
 })
 export class ProfileComponent {
-
+  
   private formBuilder = inject(FormBuilder)
   private readonly store: Store = inject(Store)
 
@@ -34,6 +34,7 @@ export class ProfileComponent {
     email: ['', [Validators.required, Validators.email]],
     phone: ['', [Validators.required]]
   });
+
   submit(){
     const valuesForm = this.profileForm.value;
     const formData: Profile = {
@@ -46,4 +47,5 @@ export class ProfileComponent {
     this.store.dispatch(addDataRequest({ item: formData}))
     this.profileForm.reset()
   }
+ 
 }

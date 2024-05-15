@@ -13,3 +13,7 @@ export interface TransactionForm {
 }
 
 export interface Profile extends Pick<TransactionForm, 'accountNumber' | 'email' | 'phone' | 'name'> {}
+
+export interface User extends Pick<TransactionForm, "name" | "email">{
+  password: string
+}

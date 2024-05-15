@@ -5,8 +5,7 @@ import { TransactionsComponent } from './components/transactions/transactions.co
 import { ExtractComponent } from './components/extract/extract.component';
 import { ProfileComponent } from './components/profile/profile.component';
 
-
-export const routes: Routes = [
+const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
@@ -32,5 +31,17 @@ export const routes: Routes = [
     redirectTo: '/home',
     pathMatch: 'full'
   },
+  {
+    path: '**',
+    redirectTo:'/home'
+  },
 ];
 
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+
+
+export { routes };
