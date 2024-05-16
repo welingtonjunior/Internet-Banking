@@ -8,22 +8,22 @@ import { ProfileComponent } from './components/profile/profile.component';
 const routes: Routes = [
   {
     path: 'home',
-    component: HomeComponent,
+    loadComponent: () => import('./components/home/home.component').then(c => c.HomeComponent),
     data: { title: 'Home' }
   },
   {
     path: 'transactions',
-    component: TransactionsComponent,
+    loadComponent: () => import('./components/transactions/transactions.component').then(c => c.TransactionsComponent),
     data: { title: 'Transferências' }
   },
   {
     path: 'profile',
-    component: ProfileComponent,
+    loadComponent: () => import('./components/profile/profile.component').then(c => c.ProfileComponent),
     data: { title: 'Perfil' }
   },
   {
     path: 'extract',
-    component: ExtractComponent,
+    loadComponent: () => import('./components/extract/extract.component').then(c => c.ExtractComponent),
     data: { title: 'Extratos' }
   },
   {
