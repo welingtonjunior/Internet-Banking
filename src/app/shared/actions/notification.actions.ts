@@ -5,7 +5,8 @@ export const ShowNotification = createAction(
     props<{ 
         message: string; 
         action?: string | undefined;
-        isOpen: boolean }>()
+        isOpen: boolean,
+        duration: number }>()
 );
 
 export const HideNotification = createAction(

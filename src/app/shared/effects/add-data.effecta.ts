@@ -21,19 +21,11 @@ export class AddDataEffects {
             mergeMap((action) => 
                 this.dataService.addData(action.item).pipe(
                     map((data) => {
-                        this.store.dispatch(ShowNotification({
-                            message: 'Transferência realizada com sucesso', 
-                            action: 'Close',
-                            isOpen: true
-                        }));
+                        this.showNotification(true)
                         return addDataSuccess({ data });
                     }),
                     catchError((error) => {
-                        this.store.dispatch(ShowNotification({
-                            message: 'Transferência falhou, tente novamente mais tarde', 
-                            action: 'Close',
-                            isOpen: true
-                        }));
+                        this.showNotification(false)
                         return of(addDataFailure({ error }));
                     }),
                     tap(() => {
@@ -43,4 +35,12 @@ export class AddDataEffects {
             )
         )
     );
+    private showNotification(isSuccess: boolean): void {
+        this.store.dispatch(ShowNotification({
+            message: isSuccess ? 'Solicitação realizada com sucesso' : 'Solicitação falhou, tente novamente mais tarde',
+            action: 'Close',
+            isOpen: true,
+            duration: 3000
+        }));
+    }
 }

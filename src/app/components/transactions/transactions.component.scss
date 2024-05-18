@@ -9,7 +9,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-    background-color: #f5f5f5; 
+    background-color: #F4F5F7; 
     border-radius: 10px;
     border: 1px solid #dddcdc;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -17,6 +17,7 @@
 
   &__input {
     width: 100%;
+    
 
     &__button {
       display: flex;
@@ -29,4 +30,8 @@
       }
     }
   }
+}
+.notification{
+  display: flex;
+  top: 10%;
 }

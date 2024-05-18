@@ -5,5 +5,10 @@ export const selectNotificationState = createFeatureSelector<NotificationState>(
 
 export const selectNotification = createSelector(
     selectNotificationState,
-    (state: NotificationState) => state
-)
+    (state: NotificationState) => ({
+      isOpen: state.isOpen,
+      message: state.data.message,
+      action: state.data.action,
+      duration: state.data.duration
+    })
+  );

@@ -3,7 +3,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButton } from '@angular/material/button';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Store, select } from '@ngrx/store';
 import { addDataRequest } from '../../shared/actions/add-data.actions';
@@ -12,7 +12,6 @@ import { selectData } from '../../shared/selectors/load-data.selector';
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { selectNotification } from '../../shared/selectors/notification.selector';
-import { NotificationState } from '../../shared/reducers/notification.reducer';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { ConfirmModalComponent } from '../../shared/modals/confirm-modal/confirm-modal.component';
 
@@ -36,13 +35,13 @@ import { ConfirmModalComponent } from '../../shared/modals/confirm-modal/confirm
 export class TransactionsComponent implements OnInit {
   public transactionForm: FormGroup;
   public dataList$!: Observable<any>;
-  public notification$!: Observable<any>;
+  notification$ = this.store.pipe(select(selectNotification));
 
   constructor(
     private formBuilder: FormBuilder,
     private store: Store<DataState>,
-    private storeNotification: Store<NotificationState>,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private _snackBar: MatSnackBar
   ) {
     this.transactionForm = this.formBuilder.group({
       accountOrigin: ['', Validators.required],
@@ -56,13 +55,23 @@ export class TransactionsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.notification$ = this.storeNotification.pipe(select(selectNotification));
+    this.notification$.subscribe((notification) => {
+      if (notification.isOpen) {
+        this.openSnackBar(notification.message, notification.action, notification.duration);
+      }
+    });
+
     this.dataList$ = this.store.pipe(select(selectData));
+  }
+
+  openSnackBar(message: string, action: string | undefined, duration: number) {
+    this._snackBar.open(message, action, {
+      duration: duration,
+    });
   }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(ConfirmModalComponent);
-
     dialogRef.componentInstance.$closeModal.subscribe(() => {
       this.confirmTransaction();
     });
