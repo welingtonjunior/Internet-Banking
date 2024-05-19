@@ -1,0 +1,47 @@
+.investment-card {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+  }
+  
+  .mat-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .investment-summary {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .summary-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+    .label {
+      font-weight: bold;
+    }
+  
+    .value {
+      font-size: 1.2em;
+    }
+  }
+  
+  .investment-assets {
+    mat-table {
+      width: 100%;
+    }
+  
+    mat-header-cell, mat-cell {
+      padding: 8px;
+      text-align: center;
+    }
+  
+    mat-header-cell {
+      font-weight: bold;
+    }
+  }
+  

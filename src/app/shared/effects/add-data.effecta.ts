@@ -38,7 +38,7 @@ export class AddDataEffects {
     private showNotification(isSuccess: boolean): void {
         this.store.dispatch(ShowNotification({
             message: isSuccess ? 'Solicitação realizada com sucesso' : 'Solicitação falhou, tente novamente mais tarde',
-            action: 'Close',
+            action: 'Fechar',
             isOpen: true,
             duration: 3000
         }));

@@ -4,7 +4,12 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButton } from '@angular/material/button';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { Store, select } from '@ngrx/store';
 import { addDataRequest } from '../../shared/actions/add-data.actions';
 import { DataState } from '../../shared/reducers/load-data.reducer';
@@ -35,7 +40,7 @@ import { ConfirmModalComponent } from '../../shared/modals/confirm-modal/confirm
 export class TransactionsComponent implements OnInit {
   public transactionForm: FormGroup;
   public dataList$!: Observable<any>;
-  notification$ = this.store.pipe(select(selectNotification));
+  public notification$ = this.store.pipe(select(selectNotification));
 
   constructor(
     private formBuilder: FormBuilder,
@@ -57,11 +62,18 @@ export class TransactionsComponent implements OnInit {
   ngOnInit(): void {
     this.notification$.subscribe((notification) => {
       if (notification.isOpen) {
-        this.openSnackBar(notification.message, notification.action, notification.duration);
+        this.openSnackBar(
+          notification.message,
+          notification.action,
+          notification.duration
+        );
       }
     });
 
     this.dataList$ = this.store.pipe(select(selectData));
+    this.dataList$.subscribe((dataList) => {
+      console.log('lista ==>>', dataList);
+    });
   }
 
   openSnackBar(message: string, action: string | undefined, duration: number) {
@@ -82,7 +94,7 @@ export class TransactionsComponent implements OnInit {
       const params = this.transactionForm.value;
       this.store.dispatch(addDataRequest({ item: params }));
       this.transactionForm.reset();
-      console.log('PARAMS ==>>', params);
+      console.log('Lista Submitt ==>>', this.dataList$);
     }
   }
 }

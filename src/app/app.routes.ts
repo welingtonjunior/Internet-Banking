@@ -38,6 +38,14 @@ const routes: Routes = [
     data: { title: 'Extratos' },
   },
   {
+    path: 'investment',
+    loadComponent: () =>
+      import('./components/investment/investment.component').then(
+        (c) => c.InvestmentComponent
+      ),
+    data: { title: 'Extratos' },
+  },
+  {
     path: '**',
     redirectTo: 'home',
   },

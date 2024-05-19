@@ -1,0 +1,46 @@
+<mat-card class="investment-card">
+    <mat-card-header>
+      <mat-card-title>Meus Investimentos</mat-card-title>
+      <button mat-icon-button (click)="refreshData()">
+        <mat-icon>refresh</mat-icon>
+      </button>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="investment-summary">
+        <div class="summary-item">
+          <span class="label">Total Investido:</span>
+          <span class="value">{{ totalInvested }}</span>
+        </div>
+        <div class="summary-item">
+          <span class="label">Rentabilidade:</span>
+          <span class="value">{{ profitability }}</span>
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="investment-assets">
+        <mat-table [dataSource]="assets" class="mat-elevation-z8">
+          <!-- Asset Name Column -->
+          <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef> Ativo </mat-header-cell>
+            <mat-cell *matCellDef="let asset"> {{ asset.name }} </mat-cell>
+          </ng-container>
+  
+          <!-- Asset Value Column -->
+          <ng-container matColumnDef="value">
+            <mat-header-cell *matHeaderCellDef> Valor </mat-header-cell>
+            <mat-cell *matCellDef="let asset"> {{ asset.value }} </mat-cell>
+          </ng-container>
+  
+          <!-- Asset Allocation Column -->
+          <ng-container matColumnDef="allocation">
+            <mat-header-cell *matHeaderCellDef> Alocação </mat-header-cell>
+            <mat-cell *matCellDef="let asset"> {{ asset.allocation }} </mat-cell>
+          </ng-container>
+  
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  

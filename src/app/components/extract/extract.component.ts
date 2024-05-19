@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { addDataState } from '../../shared/reducers/add-data.reducer';
 import {MatIconModule} from '@angular/material/icon'
 import { CommonModule } from '@angular/common';
+import { selectData } from '../../shared/selectors/load-data.selector';
 
 @Component({
   selector: 'app-extract',
@@ -13,7 +14,10 @@ import { CommonModule } from '@angular/common';
   imports: [MatTableModule, MatIconModule, CommonModule]
 })
 export class ExtractComponent implements OnInit {
+  
+  private readonly store: Store = inject(Store)
   public displayedColumns: string[] = ['accountOrigin', 'accountDestination', 'amount', 'description', 'transactionType', 'transactionDate'];
+  public dataList$ = this.store.pipe(select(selectData));
   
   dataSource = [
     { 
@@ -58,12 +62,14 @@ export class ExtractComponent implements OnInit {
     }
   ];
 
+  
 
-
-  constructor(private store: Store<addDataState>) { }
+  
 
   ngOnInit() {
-   
+   this.dataList$.subscribe((datalist) => {
+    console.log('EXTRACT ==>> ', datalist)
+   })
   }
 
   
