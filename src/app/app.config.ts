@@ -11,12 +11,14 @@ import { dataReducer } from './shared/reducers/load-data.reducer';
 import { addDataReducer } from './shared/reducers/add-data.reducer';
 import { notificationReducer } from './shared/reducers/notification.reducer';
 import { AddDataEffects } from './shared/effects/add-data.effecta';
+import { provideHttpClient } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes), 
     provideClientHydration(), 
-    provideAnimationsAsync(), 
+    provideAnimationsAsync(),
+    provideHttpClient(),
     provideStore({
       data: dataReducer,
       notification: notificationReducer,

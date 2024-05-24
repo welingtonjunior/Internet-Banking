@@ -1,33 +1,43 @@
-
 .bank-home-container {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
 
-  .mat-toolbar{
-    background-color: blueviolet;
+  .mat-toolbar {
+    background-color: #1a4d2e;
   }
+
   .toolbar-title {
     font-size: 24px;
     font-weight: bold;
-
   }
+
   .section-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
   }
+
   .mat-card {
     width: 100%;
   }
-  .summary-card, .transactions-card, .links-card {
-    background-color: #C0C0C0;
 
+  .summary-card,
+  .transactions-card,
+  .links-card {
+    background-color: #e8dfca;
   }
-  .links-card{
+
+  .links-card {
     padding: 25px;
+
+    .link-icon {
+      margin-top: 3px;
+    }
   }
-  .summary-item, .transaction-item {
+
+  .summary-item,
+  .transaction-item {
     display: flex;
     justify-content: space-between;
   }
@@ -35,17 +45,35 @@
   .item-label {
     font-weight: bold;
   }
-  .links-list{
+
+  .links-list {
     display: flex;
     flex-direction: column;
     gap: 5px;
+
+    .link-item {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: inherit;
+      padding: 10px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+
+      .link-icon {
+        margin-right: 8px;
+        margin-top: -1px;
+      }
+    }
   }
 
-
-  .item-value, .item-description, .item-amount {
+  .item-value,
+  .item-description,
+  .item-amount {
     font-size: 16px;
   }
 }
-
-
-

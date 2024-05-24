@@ -1,5 +1,4 @@
-import { RouterModule, Routes } from '@angular/router';
-import { NgModule } from '@angular/core';
+import { Routes } from '@angular/router';
 
 const routes: Routes = [
   {
@@ -10,14 +9,14 @@ const routes: Routes = [
   {
     path: 'home',
     loadComponent: () =>
-      import('./components/home/home.component').then((c) => c.HomeComponent),
-    data: { title: 'Home' },
+      import('./components/home/home.component').then(c => c.HomeComponent),
+    data: { title: 'Home' }, 
   },
   {
     path: 'transactions',
     loadComponent: () =>
       import('./components/transactions/transactions.component').then(
-        (c) => c.TransactionsComponent
+        c => c.TransactionsComponent
       ),
     data: { title: 'Transferências' },
   },
@@ -25,7 +24,7 @@ const routes: Routes = [
     path: 'profile',
     loadComponent: () =>
       import('./components/profile/profile.component').then(
-        (c) => c.ProfileComponent
+        c => c.ProfileComponent
       ),
     data: { title: 'Perfil' },
   },
@@ -33,7 +32,7 @@ const routes: Routes = [
     path: 'extract',
     loadComponent: () =>
       import('./components/extract/extract.component').then(
-        (c) => c.ExtractComponent
+        c => c.ExtractComponent
       ),
     data: { title: 'Extratos' },
   },
@@ -41,15 +40,16 @@ const routes: Routes = [
     path: 'investment',
     loadComponent: () =>
       import('./components/investment/investment.component').then(
-        (c) => c.InvestmentComponent
+        c => c.InvestmentComponent
       ),
-    data: { title: 'Extratos' },
+    data: { title: 'Investimentos' },
   },
   {
     path: '**',
     redirectTo: 'home',
   },
 ];
+
 
 export class AppRoutingModule {}
 

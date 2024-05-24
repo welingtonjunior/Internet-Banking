@@ -1,21 +1,52 @@
 @import '@angular/material/prebuilt-themes/indigo-pink';
 
+router-outlet {
+  background-image: url('./shared/images/Logótipo\ Violeta\ Médio\ Quadrado\ Imobiliária.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
-.internet-banking{
-  background-color: #2E3A59;
+.internet-banking {
+  background-color: #1A4D2E;
   display: flex;
   justify-content: center;
   align-items: center;
-  color:#F4F5F7;
+  color: #F4F5F7;
+  background-image: url('./shared/images/mountain1-01.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  padding: 40px; 
+  z-index: 7;
 
-    &__menu{
-      justify-content: space-around;
-      align-items: center;
-      gap: 10px;
+  &__menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+    background-color: rgba(26, 77, 46, 0.8); 
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  }
 
-    }
-    &__title{
-      background-color: azure;
-    }
+  &__logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-right: 20px; 
+  }
+
+  &__title {
+    flex: 1;
+    font-size: 1rem;
+    border-right: 1px solid #fff;
+    padding-right: 10px;
+  }
+
+  &__menu-buttons {
+    display: flex;
+    gap: 16px; 
+  }
 }
-

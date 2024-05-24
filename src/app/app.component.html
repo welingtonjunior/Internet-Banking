@@ -1,25 +1,31 @@
 <section class="internet-banking">
   <div class="internet-banking__menu">
+    <div class="internet-banking__logo">
+      Apex Bank
+    </div>
     <div class="internet-banking__title">
       <span>{{pageTitle}}</span>
     </div>
-    <button mat-button [matMenuTriggerFor]="accountMenu">Minha Conta</button>
-    <mat-menu #accountMenu="matMenu" yPosition="above">
-      <button mat-menu-item routerLink="profile">Perfil</button>
-      <button mat-menu-item>Contas e Cartões</button>
-      <button mat-menu-item routerLink="transactions">Transferências</button>
-      <button mat-menu-item>Pagamentos</button>
-      <button mat-menu-item routerLink="extract">Extratos e Histórico</button>
-      <button mat-menu-item routerLink="investment">Investimentos</button>
-      <button mat-menu-item>Serviços Adicionais</button>
-      <button mat-menu-item>Suporte e Atendimento</button>
-    </mat-menu>
-
-    <button mat-button [matMenuTriggerFor]="settingsMenu">Configurações</button>
-    <mat-menu #settingsMenu="matMenu" yPosition="below">
-      <button mat-menu-item>Alterar Senha</button>
-      <button mat-menu-item>Preferências de Notificação</button>
-    </mat-menu>
+    <div class="internet-banking__menu-buttons">
+      <button mat-button [matMenuTriggerFor]="accountMenu">Minha Conta</button>
+      <mat-menu #accountMenu="matMenu" yPosition="above">
+        <button mat-menu-item routerLink="home">Home</button>
+        <button mat-menu-item routerLink="profile">Perfil</button>
+        <button mat-menu-item>Contas e Cartões</button>
+        <button mat-menu-item routerLink="transactions">Transferências</button>
+        <button mat-menu-item>Pagamentos</button>
+        <button mat-menu-item routerLink="extract">Extratos e Histórico</button>
+        <button mat-menu-item routerLink="investment">Investimentos</button>
+        <button mat-menu-item>Serviços Adicionais</button>
+        <button mat-menu-item>Suporte e Atendimento</button>
+      </mat-menu>
+      
+      <button mat-button [matMenuTriggerFor]="settingsMenu">Configurações</button>
+      <mat-menu #settingsMenu="matMenu" yPosition="below">
+        <button mat-menu-item>Alterar Senha</button>
+        <button mat-menu-item>Preferências de Notificação</button>
+      </mat-menu>
+    </div>
   </div>
 </section>
 <router-outlet></router-outlet>
